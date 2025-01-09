@@ -1,0 +1,17 @@
+@import url(global.scss);
+@import url(Normalize.scss);
+
+@import 'normalize.css/normalize.css';
+
+$font-size: 1rem;
+$font-color: #fff;
+
+html {
+    font-size: $font-size;
+    color: $font-color;
+    background-color: aqua;
+}
+
+.logo{
+    font-size: 50px;
+}
