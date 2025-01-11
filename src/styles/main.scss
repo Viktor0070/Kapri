@@ -1,17 +1,218 @@
 @import url(global.scss);
 @import url(Normalize.scss);
-
+@import url(fonts.scss);
 @import 'normalize.css/normalize.css';
 
+
+$orange:#ff8b17;
+$orange_hover: #e87e13;
 $font-size: 1rem;
 $font-color: #fff;
 
 html {
     font-size: $font-size;
     color: $font-color;
-    background-color: aqua;
+    background-color:lightgray;
+}
+#header{
+    margin-top: 30px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 3;
+}
+
+.top-nav{
+    display: flex;
+    justify-content: space-between;
+    color: #151515;
+}
+
+.bottom-nav{
+    display: flex;
+    justify-content: space-between;
 }
 
 .logo{
     font-size: 50px;
+    font-style: italic;
+    line-height: 60px;
+    
 }
+
+.social-nav{
+    display: flex;
+    align-items: center;
+}
+
+.social-nav__back{
+    width: 50px;
+    height: 50px;
+    display: flex; /* Використовуємо flexbox для центрування */
+    justify-content: center; /* Горизонтальне центрування */
+    align-items: center; /* Вертикальне центрування */
+    overflow: hidden;
+    background-color: $orange;
+    border-radius: 50%;
+    & + .social-nav__back{
+        margin-left: 15px;
+    }
+    img{
+        width: 100%;  /* Встановлюємо ширину картинки на 100% від ширини контейнера */
+        height: 100%; /* Встановлюємо висоту картинки на 100% від висоти контейнера */
+        object-fit: cover;
+    }
+    &:hover{
+        background-color: $orange_hover;
+    }
+}
+
+.container{
+    .top-nav{
+        background-color: #fff;
+        padding: 10px 15px;
+        height: 70px;
+    }
+    .bottom-nav{
+        background-color: #f9f9f9;
+        padding: 10px 15px;
+        height: 70px;
+        border-top:2px solid grey;
+    }
+}
+
+
+.header-menu{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 16px;
+
+    &__item{
+        text-transform: uppercase;
+        font-weight: 800;
+
+        & + .header-menu__item{
+            margin-left: 15px;
+        }
+        a{
+            padding: 25px 23px;
+            &:hover{
+                background-color: rgba($orange, 1);
+            }
+        }
+
+    }
+    &__link{
+        display: flex;
+        align-items: center;
+        &-list{
+            display: flex;
+        }
+        & .header-menu__link-item + .header-menu__link-item{
+            margin-left: 10px;
+        }
+        &-item{
+            &.tel{
+                padding-left: 30px;
+                position: relative;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    background-image: url(/src/images/call.svg);
+                    background-repeat: no-repeat;
+                    width: 25px;
+                    height: 25px;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+            &.location{
+                padding-left: 30px;
+                position: relative;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    background-image: url(/src/images/location.svg);
+                    background-repeat: no-repeat;
+                    width: 25px;
+                    height: 25px;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+    &__reserv{
+        margin-left: 20px;
+        text-transform: uppercase;
+        color: #fff;
+        letter-spacing: 5px;
+        a{
+            padding: 12px 26px;
+            background-color: $orange;
+            border-radius: 20px;
+            &:hover{
+                background-color: $orange_hover;
+            }
+        }
+    }
+}
+
+
+
+
+
+.header-slider{
+    padding-top: 110px;
+    position: relative;
+    &__item{
+        background-image: url(/src/images/background-slider2.jpeg);
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-position: center;
+        background-size: cover;
+        z-index: -1;
+        height: 100dvh;
+        &::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3); /* Це накладення з напівпрозорим чорним фоном */
+            z-index: 1; /* Щоб накладення було поверх фону */
+            
+        }
+        & .introduction{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            z-index: 3;
+            h1{
+                font-family: 'Dancing Script';
+                color:#fff;
+                font-weight: 800;
+                font-size: 68px;
+                line-height: 70px;
+                margin: 0;
+                margin-bottom: 30px;
+            }
+            .btn{
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+
+
+

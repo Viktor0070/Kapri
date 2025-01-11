@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+
 module.exports = {
     entry: {
         main: path.resolve(__dirname, './src/index.js')
@@ -47,7 +49,7 @@ module.exports = {
                 use: [
                   MiniCssExtractPlugin.loader,  // Використовуємо MiniCssExtractPlugin для витягування CSS
                   'css-loader',  // Обробка CSS
-                  'postcss-loader',  // Для автоматичного додавання префіксів
+                  'postcss-loader',
                   {
                     loader: 'sass-loader',  // Перетворення SCSS в CSS
                     options: {
@@ -55,7 +57,9 @@ module.exports = {
                         return content.replace(/\/\/[^\n]*/g, ''); // Видаляє коментарі в SCSS
                       }
                     }
-                  }
+                  },
+                 
+
                 ],
               }
               
