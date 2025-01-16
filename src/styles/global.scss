@@ -50,3 +50,47 @@ h1{
     }
     
 }
+.slick-track {
+    transform: none !important;  /* Вимикаємо зміщення */
+    transition: none !important; /* Вимикаємо анімацію */
+}
+
+/* Перезаписуємо зміщення для slick-slide */
+.slick-slide {
+    transform: none !important;  /* Вимикаємо зміщення слайдів */
+}
+
+/* Якщо ви хочете відключити анімацію при прокручуванні */
+.slick-initialized .slick-slide {
+    transition: none !important;
+}
+
+/* Вимикаємо переміщення слайдів під час анімації */
+.slick-prev, .slick-next {
+    display: none !important; /* Якщо не хочете відображати стрілки */
+}
+.slick-slide.slick-active {
+    transform: none !important;
+}
+
+/* Вимикаємо анімації для track */
+.slick-track {
+    transform: none !important;
+    transition: none !important;
+  
+}
+
+.header-slider__dots{
+    .slick-track{
+        left: 0 !important;
+    }
+}
+
+.fixed-nav {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}

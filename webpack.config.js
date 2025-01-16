@@ -68,6 +68,11 @@ module.exports = {
 
         ],
     },
+    resolve: {
+        alias: {
+          jquery: 'jquery',  // Це необхідно для правильної роботи jQuery в інших плагінах
+        },
+      },
 
     plugins: [
         new HtmlWebpackPlugin({
