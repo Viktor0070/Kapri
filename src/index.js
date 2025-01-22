@@ -5,6 +5,7 @@ import $ from 'jquery';
 
 // Імпортуємо Slick та його стилі
 import 'slick-carousel/slick/slick.min.js';
+import 'slick-carousel/slick/slick.js';
 
 
 $(document).ready(function () {
@@ -38,10 +39,9 @@ $(document).ready(function () {
         slidesToShow: 3,
         slidesToScroll: 1,
         asNavFor: '.header-slider',
-        cssEase: 'linear',
-        arrows: false,  // Вимикаємо стрілки в слайдері точок
-        useTransform: false,       // Вимикаємо трансформації (впливає на width/height)
-        variableWidth: true,       // Якщо ваші слайди мають змінну ширину
+        
+        // Вимикаємо стрілки в слайдері точок
+             // Якщо ваші слайди мають змінну ширину
         arrows: false,
         
         
@@ -54,9 +54,38 @@ $(document).ready(function () {
         autoplay: true,
         autoplaySpeed: 2000,
         infinite:true,
-        useTransform: false,       // Вимикаємо трансформації (впливає на width/height)
-        variableWidth: true,     
+           
       });
+      
+     
+      $('.menu-nav').slick({
+        slidesToShow: 8,
+        slidesToScroll: 1,
+        asNavFor: '.menu-slider', // Прив'язує до основного слайдера
+        focusOnSelect: true, // Дозволяє вибирати слайд через кліки
+        arrows: false, // Вимикає стрілки навігації
+        infinite: false, // Вимикає безкінечний цикл
+        centerMode: false, // Вимикає центровані слайди
+        variableWidth: true, // Змінна ширина для слайдів
+        useTransform: false, // Вимикає трансформації
+       
+    });
+
+    $('.menu-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false, // Вимикає стрілки навігації
+        asNavFor: '.menu-nav', // Прив'язує до меню-навгації
+        infinite: false, // Вимикає безкінечний цикл
+        fade: true, // Додає ефект плавного переходу
+        
+    });
+
+    // Перемикання слайдів при кліку на елемент меню
+    $('.menu-nav div').on('click', function() {
+        var index = $(this).index(); // Отримуємо індекс натиснутого елемента
+        $('.menu-slider').slick('slickGoTo', index); // Перемикаємо на відповідний слайд
+    });
           
    
 

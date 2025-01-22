@@ -1,7 +1,7 @@
 *,
 ::after,
 ::before{
-    box-sizing: border-box;
+    box-sizing: border-box !important;
 }
 
 a{
@@ -27,7 +27,7 @@ ul , li{
     margin: 0;
 }
 
-h1{
+h1,h2,h3,h4,p{
     margin: 0;
 }
 
@@ -50,40 +50,41 @@ h1{
     }
     
 }
-.slick-track {
-    transform: none !important;  /* Вимикаємо зміщення */
-    transition: none !important; /* Вимикаємо анімацію */
-}
 
-/* Перезаписуємо зміщення для slick-slide */
-.slick-slide {
-    transform: none !important;  /* Вимикаємо зміщення слайдів */
-}
-
-/* Якщо ви хочете відключити анімацію при прокручуванні */
-.slick-initialized .slick-slide {
-    transition: none !important;
-}
-
-/* Вимикаємо переміщення слайдів під час анімації */
-.slick-prev, .slick-next {
-    display: none !important; /* Якщо не хочете відображати стрілки */
-}
-.slick-slide.slick-active {
-    transform: none !important;
-}
-
-/* Вимикаємо анімації для track */
-.slick-track {
-    transform: none !important;
-    transition: none !important;
-  
+.header-slider{
+    .slick-list{
+        height: 100dvh;
+    }
 }
 
 .header-slider__dots{
     .slick-track{
-        left: 0 !important;
+        
+
     }
+    .slick-slide{
+        width: 50px;
+    }
+}
+
+
+
+.menu-nav{
+    .slick-track{
+        
+        width: auto !important;
+    }
+   
+        .slick-current{
+           
+                .menu-nav-item{
+                    background-color:#ff8b17 !important;
+                }
+                    
+                
+            
+        }
+    
 }
 
 .fixed-nav {
@@ -93,4 +94,32 @@ h1{
     right: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.holder-head{
+    h4{
+        color: #f36700;
+        font-weight: 400;
+        text-align: center;
+    }
+    .holder-title{
+        font-family: 'Dancing Script', cursive;
+        margin-top: 0px;
+        font-weight: 700;
+        color: #151515;
+        font-size: 36px;
+        text-align: center;
+        position: relative;
+        &::after{
+            content: '';
+            position: absolute;
+            height: 2px;
+            background-color: #ff8b17;
+            width: 100%;
+            display: block;
+            margin-top: 20px;
+
+        }
+    }
+    margin-bottom: 55px;
 }
