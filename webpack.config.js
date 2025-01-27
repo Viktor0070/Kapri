@@ -41,28 +41,28 @@ module.exports = {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
                 type: 'asset/resource', // використовуємо Asset Modules для обробки файлів
                 generator: {
-                  filename: 'assets/fonts/[name][hash][ext][query]' // шлях для збереження шрифтів
+                    filename: 'assets/fonts/[name][hash][ext][query]' // шлях для збереження шрифтів
                 }
             },
             {
                 test: /\.(scss|css)$/,
                 use: [
-                  MiniCssExtractPlugin.loader,  // Використовуємо MiniCssExtractPlugin для витягування CSS
-                  'css-loader',  // Обробка CSS
-                  'postcss-loader',
-                  {
-                    loader: 'sass-loader',  // Перетворення SCSS в CSS
-                    options: {
-                      additionalData: (content, loaderContext) => {
-                        return content.replace(/\/\/[^\n]*/g, ''); // Видаляє коментарі в SCSS
-                      }
-                    }
-                  },
-                 
+                    MiniCssExtractPlugin.loader,  // Використовуємо MiniCssExtractPlugin для витягування CSS
+                    'css-loader',  // Обробка CSS
+                    'postcss-loader',
+                    {
+                        loader: 'sass-loader',  // Перетворення SCSS в CSS
+                        options: {
+                            additionalData: (content, loaderContext) => {
+                                return content.replace(/\/\/[^\n]*/g, ''); // Видаляє коментарі в SCSS
+                            }
+                        }
+                    },
+
 
                 ],
-              }
-              
+            }
+
 
 
 
@@ -70,9 +70,9 @@ module.exports = {
     },
     resolve: {
         alias: {
-          jquery: 'jquery',  // Це необхідно для правильної роботи jQuery в інших плагінах
+            jquery: 'jquery',  // Це необхідно для правильної роботи jQuery в інших плагінах
         },
-      },
+    },
 
     plugins: [
         new HtmlWebpackPlugin({

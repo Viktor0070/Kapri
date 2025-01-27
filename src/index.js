@@ -9,10 +9,10 @@ import 'slick-carousel/slick/slick.js';
 
 
 $(document).ready(function () {
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         var scroll = $(window).scrollTop(); // Поточна позиція прокрутки
         var triggerOffset = $('#header').offset().top + ($('#header').outerHeight() / 2); // Відстань до середини блоку
-        
+
         // Перевіряємо, чи прокрутили до середини блоку #about
         if (scroll >= triggerOffset) {
             $('.bottom-nav').addClass('fixed-nav'); // Додаємо клас для фіксації
@@ -20,31 +20,31 @@ $(document).ready(function () {
             $('.bottom-nav').removeClass('fixed-nav'); // Видаляємо клас, якщо не прокрутили до цієї точки
         }
     });
-    
+
     $('.header-slider').slick({
         prevArrow: '<img src="images/arrow-prev.svg" class="slick-slider prev-arrow" alt=""></img>',
         nextArrow: '<img src="images/arrow-next.svg" class="slick-slider next-arrow" alt=""></img>',
         infinite: true,
-        slidesToShow:1,
-        slidesToScroll:1,
-        fade: true, 
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        fade: true,
 
-        autoplay:true,
+        autoplay: true,
         autoplaySpeed: 4000,
-        asNavFor:'.header-slider__dots',
+        asNavFor: '.header-slider__dots',
     });
-    
-   
+
+
     $('.header-slider__dots').slick({
         slidesToShow: 3,
         slidesToScroll: 1,
         asNavFor: '.header-slider',
-        
+
         // Вимикаємо стрілки в слайдері точок
-             // Якщо ваші слайди мають змінну ширину
+        // Якщо ваші слайди мають змінну ширину
         arrows: false,
-        
-        
+
+
     });
     $('.about-slider').slick({
         prevArrow: '<img src="images/arrow-prev.svg" class="slick-slider prev-arrow" alt=""></img>',
@@ -53,12 +53,12 @@ $(document).ready(function () {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
-        infinite:true,
-           
-      });
-      
-     
-      $('.menu-nav').slick({
+        infinite: true,
+
+    });
+
+
+    $('.menu-nav').slick({
         slidesToShow: 8,
         slidesToScroll: 1,
         asNavFor: '.menu-slider', // Прив'язує до основного слайдера
@@ -68,7 +68,7 @@ $(document).ready(function () {
         centerMode: false, // Вимикає центровані слайди
         variableWidth: true, // Змінна ширина для слайдів
         useTransform: false, // Вимикає трансформації
-       
+
     });
 
     $('.menu-slider').slick({
@@ -78,16 +78,64 @@ $(document).ready(function () {
         asNavFor: '.menu-nav', // Прив'язує до меню-навгації
         infinite: false, // Вимикає безкінечний цикл
         fade: true, // Додає ефект плавного переходу
-        
+
     });
 
     // Перемикання слайдів при кліку на елемент меню
-    $('.menu-nav div').on('click', function() {
+    $('.menu-nav div').on('click', function () {
         var index = $(this).index(); // Отримуємо індекс натиснутого елемента
         $('.menu-slider').slick('slickGoTo', index); // Перемикаємо на відповідний слайд
     });
-          
-   
+
+    $('.header-menu__link-about').on('click', function (e) {
+        e.preventDefault(); // Запобігаємо стандартній поведінці посилання (якщо це <a>)
+
+        // Знаходимо елемент з ID "about"
+        var about = $('#about')[0];  // Використовуємо jQuery, але потім отримуємо перший елемент за допомогою [0]
+
+        if (about) {
+            about.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+    $('.header-menu__link-menu').on('click', function (e) {
+        e.preventDefault();
+
+
+        var menu = $('#menu')[0];
+
+        if (menu) {
+            menu.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+    $('.header-menu__link-rezervation').on('click', function (e) {
+        e.preventDefault();
+
+
+        var rezervation = $('#rezervation')[0];
+
+        if (rezervation) {
+            rezervation.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+    $('.hotel-slider').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        prevArrow: '<img src="images/arrow-prev.svg" class="slick-slider prev-arrow" alt=""></img>',
+        nextArrow: '<img src="images/arrow-next.svg" class="slick-slider next-arrow" alt=""></img>',
+        infinite: true, // Вимикає безкінечний цикл
+        centerMode: true,
+
+    });
+
 
 });
 

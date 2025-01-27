@@ -1,90 +1,84 @@
 *,
 ::after,
-::before{
+::before {
     box-sizing: border-box !important;
 }
 
-a{
+a {
     text-decoration: none;
     color: inherit;
 }
 
-html{
+html {
     font-family: "Cabin", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
-body{
+body {
     color: #151515;
 }
 
-ul , li{
+ul,
+li {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-h1,h2,h3,h4,p{
+h1,
+h2,
+h3,
+h4,
+p {
     margin: 0;
 }
 
-.container{
+.container {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.btn{
+.btn {
     color: #fff;
-    
+
     text-transform: uppercase;
-    a{
+    display: inline-flex;
+    a {
         padding: 12px 26px;
-        background-color:#ff8b17;
+        background-color: #ff8b17;
         border-radius: 20px;
-        &:hover{
+        &:hover {
             background-color: #e87e13;
         }
     }
-    
 }
 
-.header-slider{
-    .slick-list{
+.header-slider {
+    .slick-list {
         height: 100dvh;
     }
 }
 
-.header-slider__dots{
-    .slick-track{
-        
-
+.header-slider__dots {
+    .slick-track {
     }
-    .slick-slide{
+    .slick-slide {
         width: 50px;
     }
 }
 
-
-
-.menu-nav{
-    .slick-track{
-        
+.menu-nav {
+    .slick-track {
         width: auto !important;
     }
-   
-        .slick-current{
-           
-                .menu-nav-item{
-                    background-color:#ff8b17 !important;
-                }
-                    
-                
-            
+
+    .slick-current {
+        .menu-nav-item {
+            background-color: #ff8b17 !important;
         }
-    
+    }
 }
 
 .fixed-nav {
@@ -96,29 +90,28 @@ h1,h2,h3,h4,p{
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.holder-head{
-    h4{
+.holder-head {
+    h4 {
         color: #f36700;
         font-weight: 400;
         text-align: center;
     }
-    .holder-title{
-        font-family: 'Dancing Script', cursive;
+    .holder-title {
+        font-family: "Dancing Script", cursive;
         margin-top: 0px;
         font-weight: 700;
         color: #151515;
         font-size: 36px;
         text-align: center;
         position: relative;
-        &::after{
-            content: '';
+        &::after {
+            content: "";
             position: absolute;
             height: 2px;
             background-color: #ff8b17;
             width: 100%;
             display: block;
             margin-top: 20px;
-
         }
     }
     margin-bottom: 55px;
