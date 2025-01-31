@@ -1,10 +1,14 @@
-@import url(global.scss);
-@import url(Normalize.scss);
-@import url(fonts.scss);
+
+
+
+
 @import "normalize.css/normalize.css";
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
 @import "animate.css/animate.css";
+@import url(_global.scss);
+@import url(fonts.scss);
+
 
 $orange: #ff8b17;
 $orange_hover: #e87e13;
@@ -25,7 +29,7 @@ html {
     position: absolute;
     left: 0;
     right: 0;
-    z-index: 3;
+    z-index: 9;
 }
 
 .top-nav {
@@ -41,11 +45,7 @@ html {
     transition: all 0.3s ease; /* Плавний перехід при фіксації */
 }
 
-.logo {
-    font-size: 50px;
-    font-style: italic;
-    line-height: 60px;
-}
+
 
 .social-nav {
     display: flex;
@@ -199,10 +199,11 @@ html {
                 font-family: "Dancing Script";
                 color: #fff;
                 font-weight: 800;
-                font-size: 68px;
+                font-size: 68px; 
                 line-height: 70px;
                 margin: 0;
                 margin-bottom: 30px;
+                white-space: nowrap;
             }
             .btn {
                 text-align: center;
@@ -231,7 +232,7 @@ html {
 .header-slider__dots {
     position: absolute;
     left: 50%;
-    z-index: 40;
+    z-index:7;
     bottom: 100px;
     width: 100px;
 
@@ -242,7 +243,7 @@ html {
         height: 15px;
         background-color: #f9f9f9;
         border-radius: 50%;
-        z-index: 40;
+        z-index: 10 !important;
 
         & + .header-dot {
             margin-left: 15px;
@@ -251,8 +252,9 @@ html {
     .slick-current .header-dot {
         background-color: $orange;
     }
-    .slick-slide {
+    .slick-slide .header-dot {
         width: auto;
+      
     }
     .slick-track {
         height: 25px;
@@ -343,8 +345,8 @@ html {
     position: relative;
     padding: 50px 0;
 
-    height: 800px;
-    overflow: hidden;
+    height: 100%;
+    overflow: auto;
     .holder-title {
         color: #fff;
     }
@@ -387,11 +389,20 @@ html {
 
         margin-top: 120px;
         &-item {
-            display: inline-block;
+            display: inline-flex;
             text-transform: uppercase;
-
+            align-items: center;  // Вирівнюємо по вертикалі
+            justify-content: center;  // Вирівнюємо по горизонталі
             padding: 30px 33px;
             background-color: #fff;
+        }
+        .slick-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .slick-track{
+            height: 100%;
         }
     }
     .menu-content {
@@ -403,7 +414,7 @@ html {
 
 #menu1 {
     display: flex !important;
-    justify-content: space-around !important;
+    
     .menu-column {
         width: 50%;
         & + .menu-column {
@@ -453,16 +464,18 @@ html {
 }
 
 .menu-slider {
+    overflow: hidden;
     .slick-list,
     .slick-slide {
         width: 100% !important ;
         height: 350px;
     }
     .slick-slide {
-        width: 1140px !important;
+        width: 1130px !important;
         height: 350px !important;
     }
 }
+
 
 #rezervation {
     padding: 80px 0;
@@ -710,5 +723,334 @@ html {
         display: block;
         color: #969696;
         text-align: center;
+    }
+}
+
+
+
+
+@media (max-width:1340px) {
+    .container{
+        max-width: 1000px;
+    }
+    .header-menu__item {
+        a {
+            padding: 25px 13px !important;
+        }
+    }
+    .menu-row .menu-nav-item {
+        
+        padding: 23px 23px;
+        
+    }
+    #menu1 .menu-column + .menu-column {
+        margin-left: 50px;
+    }
+    .menu-slider .slick-slide {
+        width: 930px !important;
+       
+    }
+    
+}
+
+@media (max-width:1200px){
+    .header-slider__item .introduction h1 {
+        
+        font-size: 56px;
+        line-height: 61px;
+        
+        
+    }
+    .about-slider.slick-slider {
+        .next-arrow {
+            top: auto;
+            right: 34%;
+            
+           
+            bottom: -53px;
+        }
+        .prev-arrow{
+            top: auto;
+            left: 34%;
+            
+           
+            bottom: -53px;
+        }
+    }
+    .menu-row{
+        .menu-nav{
+            margin-top: 0;
+            
+        }
+    }
+    
+}
+
+
+@media (max-width:1020px){
+    .container{
+        max-width: 700px;
+        .bottom-nav {
+            
+            height: 60px;
+            
+        }
+    }
+    .header-menu__item + .header-menu__item {
+        margin-left: 0;
+    }
+    .header-menu__item {
+        a {
+            padding: 20px 11px !important;
+        }
+    }
+    .header-menu__link{
+        display: none;
+    }
+    .about-content__column-1 {
+       
+        font-size: 20px;
+        line-height: 24px;
+        
+    }
+    .about-content__column-2 {
+       
+        font-size: 13px;
+        line-height: 19px;
+        
+    }
+    .menu-row{
+        position: relative;
+    }
+    .menu-nav{
+        height: 100%;
+        padding: 20px 0;
+        .slick-list{
+            height: auto;
+        }
+        &.slick-track{
+            height: auto;
+            width: 100%;
+        }
+        &.slick-slide{
+            width: auto;
+        }
+        &.slick-slider {
+            .next-arrow {
+                position: absolute;
+                top: -20px;
+                right: 0;
+                z-index: 3;
+            }
+            .prev-arrow{
+                position: absolute;
+                top: -20px;
+                left: 0;
+                z-index: 3;
+            }
+        }
+        
+    }
+    #menu1{
+        flex-direction: column;
+        .menu-column + .menu-column {
+            margin-left: 0px;
+        }
+        .menu-column{
+            width: 100%;
+        }
+    }
+    .menu-slider .slick-list, .menu-slider .slick-slide {
+        width: 630px !important;
+        height: 100% !important;
+    }
+
+}
+
+
+
+@media (max-width:720px){
+    .header .container{
+        max-width: 100%;
+    }
+
+    .container{
+        max-width: 450px;
+    }
+    
+    .header{
+        margin-top: 0;
+        z-index: 51;
+        .top-nav{
+            padding: 21px 33px;
+            height: auto;
+        }
+    }
+    
+    .header-slider__dots .header-dot {
+        width: 12px !important;
+        height: 12px;
+        
+    }
+    .social-nav__back {
+        width: 40px;
+        height: 40px;
+        img{
+           
+                width: 22px;
+                height: 21px;
+             
+        }
+    }
+    
+    .bottom-nav{
+        justify-content: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100dvh !important;
+        border-top: none !important;
+        z-index: 1001;
+        background-color: #151515 !important;
+        transform: translate(0, -100%);
+        color: #fff;
+        width: 230px;
+        flex-direction: column;
+       .header-menu{
+        flex-direction: column;
+        justify-content: center;
+        z-index: 10;
+        font-size: 16px;
+        &__item{
+           margin: 5px 0;
+           width: 100%;
+           a{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 30px;
+            padding: 0 !important;
+            &:hover{
+                background-color: #ff8b17;
+            }
+           }
+        }
+       }
+    }
+    .header-menu__link{
+        display: block;
+        &-list{
+            margin: 25px 0;
+            flex-direction: column;
+            align-items: center;
+        }
+        &-item{
+            margin: 5px 0;
+        }
+    }
+    .header-menu__reserv{
+        margin-left: 0;
+        text-align: center;
+        a{
+            padding: 10px 17px;
+        }
+    }
+    .header-slider__item .introduction h1 {
+        font-size: 47px;
+        line-height: 50px;
+    }
+    .burger{
+        display: flex;
+    }
+    .about-content__column-1 {
+        font-size: 15px;
+        line-height: 21px;
+    }
+    .about-content__column-2 {
+        font-size: 10px;
+        line-height: 15px;
+        margin-left: 5px;
+        letter-spacing: 0.5px;
+    }
+    .menu-row .menu-nav-item {
+        padding: 17px 17px;
+        font-size: 14px;
+    }
+    .menu-slider .slick-list, .menu-slider .slick-slide {
+        width: 380px !important;
+        
+    }
+    .menu-nav{
+       
+        .slick-slide{
+            height: auto;
+        }
+    }
+
+}
+
+@media (max-width:520px){
+    .header-slider__item {
+        .introduction h1 {
+            font-size: 35px;
+            line-height: 40px;
+        }
+        .introduction{
+            .btn{
+                margin-top: 320px;
+            }
+        }
+    }
+    .holder-head{
+        .holder-title{
+            font-size: 26px;
+        }
+
+    }
+    
+    .btn{
+        a{
+            padding: 6px 15px;
+        }
+    }
+    #menu1{
+        h4{
+            font-size: 14px;
+        }
+        p{
+            font-size: 12px;
+        }
+    }
+    .menu-content{
+        overflow: auto;
+    }
+    .menu-slider{
+        .slick-list{
+            width: 100% !important;
+            max-height: 630px !important;
+        }
+        .slick-slide{
+            height: 100% !important;
+            display: flex;
+          justify-content: center;
+         align-items: center;
+        }
+        .slick-track{
+            height: 100% !important;
+            display: flex;
+    align-items: stretch; /* Вирівнює слайди по висоті */
+        }
+    }
+}
+
+@media (max-width:420px){
+    .header-slider__item .introduction h1 {
+        font-size: 30px;
+        line-height: 32px;
+    }
+    .about-content__column-1 {
+        font-size: 14px;
+        line-height: 17px;
     }
 }
