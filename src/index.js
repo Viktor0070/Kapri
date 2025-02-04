@@ -2,11 +2,11 @@
 
 
 
-import $ from 'jquery';
+// import $ from 'jquery';
 
 // Імпортуємо Slick та його стилі
-import 'slick-carousel/slick/slick.min.js';
-import 'slick-carousel/slick/slick.js';
+// import 'slick-carousel/slick/slick.min.js';
+// import 'slick-carousel/slick/slick.js';
 
 import './styles/main.scss';
 
@@ -26,7 +26,7 @@ $(document).ready(function () {
     $(window).scroll(function () {
         var scroll = $(window).scrollTop(); // Поточна позиція прокрутки
         var triggerOffset;
-        
+
         // Перевіряємо, чи ширина екрану більше або менше 720px
         if ($(window).width() > 720) {
             // Для великого екрану, використовуємо старі умови
@@ -81,63 +81,63 @@ $(document).ready(function () {
         autoplaySpeed: 2000,
         infinite: true,
         responsive: [
-           
+
             {
-              breakpoint: 720,
-              settings: {
-                slidesToShow: 2,
-                
-              }
+                breakpoint: 720,
+                settings: {
+                    slidesToShow: 2,
+
+                }
             },
             {
                 breakpoint: 520,
                 settings: {
-                  slidesToShow: 1,
-                  
-                } 
+                    slidesToShow: 1,
+
+                }
             }
-            
+
             // You can unslick at a given breakpoint now by adding:
             // settings: "unslick"
             // instead of a settings object
-          ]
+        ]
     });
 
 
     $('.menu-nav').slick({
         slidesToShow: 8,
-        
-        asNavFor: '.menu-slider', 
+
+        asNavFor: '.menu-slider',
         focusOnSelect: true, // Дозволяє вибирати слайд через кліки
         arrows: false, // Вимикає стрілки навігації
         infinite: true, // Вимикає безкінечний цикл
         centerMode: false, // Вимикає центровані слайди
         variableWidth: true, // Змінна ширина для слайдів
         useTransform: false, // Вимикає трансформації
-        responsive:[
+        responsive: [
             {
-                breakpoint:1020,
-                settings:{
-                    slidesToShow:6,
-                   slidesToScroll:1,
+                breakpoint: 1020,
+                settings: {
+                    slidesToShow: 6,
+                    slidesToScroll: 1,
                     prevArrow: '<img src="images/arrow-prev.svg" class="slick-slider prev-arrow" alt=""></img>',
                     nextArrow: '<img src="images/arrow-next.svg" class="slick-slider next-arrow" alt=""></img>',
-                    arrows:true,
+                    arrows: true,
                 }
 
-            },{
-                breakpoint:720,
-                settings:{
-                    slidesToShow:4,
-                    slidesToScroll:1,
+            }, {
+                breakpoint: 720,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
                     prevArrow: '<img src="images/arrow-prev.svg" class="slick-slider prev-arrow" alt=""></img>',
                     nextArrow: '<img src="images/arrow-next.svg" class="slick-slider next-arrow" alt=""></img>',
-                    arrows:true,
+                    arrows: true,
                 }
             }
         ]
     });
-    
+
 
     $('.menu-slider').slick({
         slidesToShow: 1,
@@ -146,7 +146,7 @@ $(document).ready(function () {
         asNavFor: '.menu-nav', // Прив'язує до меню-навгації
         infinite: false, // Вимикає безкінечний цикл
         fade: true, // Додає ефект плавного переходу
-        
+
     });
 
     // Перемикання слайдів при кліку на елемент меню
@@ -207,6 +207,7 @@ $(document).ready(function () {
             });
         }
     });
+    document.querySelector('.hotel-slider__item').style.backgroundImage = "url('images/hotel-slider1.jpg')";
 
 
     $('.hotel-slider').slick({
@@ -216,11 +217,26 @@ $(document).ready(function () {
         nextArrow: '<img src="images/arrow-next.svg" class="slick-slider next-arrow" alt=""></img>',
         infinite: true, // Вимикає безкінечний цикл
         centerMode: true,
+        arrows: true,
+        responsive: [
+            {
+                breakpoint: 720,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+
+
+                    infinite: true,
+                    variableWidth: false,
+                    centerMode: false,
+                }
+            }
+        ]
 
     });
-    $('.burger').on('click', function(){
+    $('.burger').on('click', function () {
         $('.bottom-nav').toggleClass('hidden');
-       
+
         if ($('.bottom-nav').hasClass('hidden')) {
             // Якщо меню приховане
             $('.burger').addClass('open'); // Прибираємо клас 'open'
@@ -231,12 +247,12 @@ $(document).ready(function () {
             // Додати інші стилі, якщо потрібно
         }
     })
-    $('.burger').on('click', function() {
+    $('.burger').on('click', function () {
         // Додаємо або прибираємо клас 'active' у bottom-nav
-     
-        
+
+
         // Показуємо або ховаємо overlay
-        $('.overlay').toggle();  
+        $('.overlay').toggle();
     });
 
 

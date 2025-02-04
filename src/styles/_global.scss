@@ -64,6 +64,8 @@ p {
 
 .header-slider__dots {
     .slick-track {
+        transform: none !important;
+       
     }
     .slick-slide {
         width: 50px;
@@ -76,9 +78,9 @@ p {
     }
 
     .slick-current {
-        .menu-nav-item {
+        
             background-color: #ff8b17 !important;
-        }
+        
     }
 }
 
@@ -130,19 +132,15 @@ p {
         width: 100%;
         height: 3px;
         background-color: black;
-        
-      }
+    }
 }
 
-.open{
-    
-        .line {
-            width: 100%;
-            height: 3px;
-            background-color: black;
-            
-          }
-    
+.open {
+    .line {
+        width: 100%;
+        height: 3px;
+        background-color: black;
+    }
 }
 .burger.open {
     .line:nth-child(1) {
@@ -170,15 +168,14 @@ p {
     display: none; /* Приховано за замовчуванням */
     z-index: 50; /* Високий z-index, щоб overlay був поверх всього */
 }
- 
-.bottom-nav.hidden+ .overlay {
+
+.bottom-nav.hidden + .overlay {
     display: block;
 }
-.hidden{
-    
+.hidden {
     transform: translateY(0) !important;
     transition: all 2s !important;
 }
-.burger{
+.burger {
     display: none;
 }
